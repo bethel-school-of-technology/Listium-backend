@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
+    "react-router": "^5.1.2",
     "sequelize": "^4.43.0"
   }
 }
