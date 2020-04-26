@@ -3,14 +3,16 @@ module.exports = (sequelize, DataTypes) => {
   const events = sequelize.define(
     "events",
     {
-      eventId: {
+      id: {
         type: DataTypes.INTEGER(3).UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
-      eventType: {
-          
+      eventCategory: {},
+      eventDate: {
+        type: DataTypes.DATE,
+        allowNull: false,
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -26,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   events.associate = function (models) {
-    // associations can be defined here
+    models.events.belongsTo(models.users, { targetKey: "UserId" });
   };
   return events;
 };

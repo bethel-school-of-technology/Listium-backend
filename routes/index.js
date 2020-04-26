@@ -9,11 +9,15 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/events", function (req, res, next) {
-  models.event.findAll({}).then((eventsFound) => {
-    res.render("events", {
-      events: eventsFound,
+  models.user
+    .findAll({
+      include: [models.events],
+    })
+    .then((eventsFound) => {
+      res.render("events", {
+        events: eventsFound,
+      });
     });
-  });
 });
 
 router.get("/event/:id", function (req, res, next) {
