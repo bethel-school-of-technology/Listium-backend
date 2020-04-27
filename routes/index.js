@@ -35,4 +35,7 @@ router.get("/event/:id", function (req, res, next) {
     });
 });
 
+
+
+
 module.exports = router;

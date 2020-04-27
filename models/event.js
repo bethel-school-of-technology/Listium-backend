@@ -9,7 +9,10 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      eventCategory: {},
+      eventCategory: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       eventDate: {
         type: DataTypes.DATE,
         allowNull: false,
