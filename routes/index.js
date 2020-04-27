@@ -5,7 +5,7 @@ const models = require("../models");
 const Sequelize = require("sequelize");
 
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Listium" });
+  res.render("Home", { title: "Listium" });
 });
 
 router.get("/events", function (req, res, next) {
@@ -35,7 +35,9 @@ router.get("/event/:id", function (req, res, next) {
     });
 });
 
-
+router.post("/", function (req, res) {
+  res.send("")
+})
 
 
 module.exports = router;
