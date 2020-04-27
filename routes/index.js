@@ -21,11 +21,11 @@ router.get("/events", function (req, res, next) {
 });
 
 router.get("/event/:id", function (req, res, next) {
-  let eventId = parseInt(req.params.id);
+  let Id = parseInt(req.params.id);
   models.event
     .findOne({
       where: {
-        eventId: eventId,
+        Id: Id,
       },
     })
     .then((event) => {
