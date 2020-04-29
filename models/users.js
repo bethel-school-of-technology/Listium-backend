@@ -38,8 +38,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: "users",
     }
   );
-  users.associate = function (models) {
-    // associations can be defined here
-  };
+  users.associate = function (models) {};
   return users;
 };

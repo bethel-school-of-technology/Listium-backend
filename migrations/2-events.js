@@ -5,56 +5,43 @@ var Sequelize = require('sequelize');
 /**
  * Actions summary:
  *
- * createTable "users", deps: []
+ * createTable "events", deps: []
  *
  **/
 
 var info = {
-    "revision": 1,
-    "name": "users",
-    "created": "2020-04-29T21:25:20.307Z",
+    "revision": 2,
+    "name": "events",
+    "created": "2020-04-29T21:28:29.740Z",
     "comment": ""
 };
 
 var migrationCommands = [{
     fn: "createTable",
     params: [
-        "users",
+        "events",
         {
-            "UserId": {
-                "type": Sequelize.INTEGER,
-                "field": "UserId",
-                "primaryKey": true,
+            "id": {
+                "type": Sequelize.INTEGER(3).UNSIGNED,
+                "field": "id",
                 "autoIncrement": true,
+                "primaryKey": true,
                 "allowNull": false
             },
-            "FirstName": {
+            "eventName": {
                 "type": Sequelize.STRING,
-                "field": "FirstName"
+                "field": "eventName",
+                "allowNull": false
             },
-            "LastName": {
+            "eventCategory": {
                 "type": Sequelize.STRING,
-                "field": "LastName"
+                "field": "eventCategory",
+                "allowNull": false
             },
-            "Email": {
-                "type": Sequelize.STRING,
-                "field": "Email",
-                "unique": true
-            },
-            "Username": {
-                "type": Sequelize.STRING,
-                "field": "Username",
-                "unique": true
-            },
-            "Password": {
-                "type": Sequelize.STRING,
-                "field": "Password"
-            },
-            "Admin": {
-                "type": Sequelize.BOOLEAN,
-                "field": "Admin",
-                "allowNull": false,
-                "defaultValue": false
+            "eventDate": {
+                "type": Sequelize.DATE,
+                "field": "eventDate",
+                "allowNull": false
             },
             "createdAt": {
                 "type": Sequelize.DATE,
