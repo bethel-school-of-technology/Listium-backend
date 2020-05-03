@@ -15,22 +15,19 @@ app.get('/', function(req, res, next) {
 
 //EVENTS//////////////////////////////////////////////////////////////////
 app.get("/events", (req, res) => {
-  models.users
-    .findall({
-      include: [models.events],
-    })
-    .then((eventsFound) => {
-      res.render("events", {
-        events: { eventsFound },
-      });
-    });
-  res.json({ events });
+  models.events.findAll().then(events => {
+    console.log(events)
+    res.json({events})
+  })
+
 });
 
+
+// need to use useEffect on the component in React to get info. Routing in React is fine.
 app.get("/event/:id", (req, res) => {
   models.events.findByPk(parseInt(req.params.id)).then((event) => {
-    if (user) {
-      res.json("events", {
+    if (event) {
+      res.json({
         EventName: event.eventName,
       });
     } else {
@@ -40,9 +37,6 @@ app.get("/event/:id", (req, res) => {
 });
 
 //SIGNUP//////////////////////////////////////////////////////////////////
-app.get("/signup", function (req, res, next) {
-  res.render("signup");
-});
 
 app.post("/signup", function (req, res, next) {
   models.users
@@ -66,10 +60,6 @@ app.post("/signup", function (req, res, next) {
     });
 });
 //LOGIN////////////////////////////////////////////////////////////////
-
-app.get("/login", function (req, res, next) {
-  res.render("login");
-});
 
 app.post("/login", function (req, res, next) {
   models.users
