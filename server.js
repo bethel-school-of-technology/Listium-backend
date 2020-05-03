@@ -38,7 +38,7 @@ app.get("/event/:id", (req, res) => {
   });
 });
 
-app.post("/event", function (req, res, next) {
+app.post("/event",  (req, res, next) => {
   models.events
     .findOrCreate({
       where: {
@@ -58,6 +58,18 @@ app.post("/event", function (req, res, next) {
     });
 });
 
+app.delete("/event/:id", (req, res) => {
+  models.events.
+    destroy({
+      where: { id: req.body.id }
+    })
+    .then(result => res.send("Deleted!"))
+    .catch(err => {
+      res.status(400);
+      res.send("Not today! Make sure you are specifying the correct id.");
+    });
+});
+  
 
 //PROFILE//////////////////////////////////////////////////////////////////
 
