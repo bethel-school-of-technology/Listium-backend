@@ -13,15 +13,16 @@ app.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-//EVENTS//////////////////////////////////////////////////////////////////
+//EVENTS////z//////////////////////////////////////////////////////////////
 app.get("/events", (req, res) => {
   models.events.findAll().then(events => {
     console.log(events)
-    res.json({events})
+    res.json(events)
   })
 
 });
 
+// app.post("/events", events.create);
 
 // need to use useEffect on the component in React to get info. Routing in React is fine.
 app.get("/event/:id", (req, res) => {
@@ -53,7 +54,7 @@ app.post("/signup", function (req, res, next) {
     })
     .spread(function (result, created) {
       if (created) {
-        res.redirect("login"); //<---Change this line to redirect to the login screen
+        res.send("success"); //<---Change this line to redirect to the login screen
       } else {
         res.send("This username is taken!");
       }
