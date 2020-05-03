@@ -30,6 +30,8 @@ app.get("/event/:id", (req, res) => {
     if (event) {
       res.json({
         EventName: event.eventName,
+        EventCategory: event.eventCategory,
+        EventDate: event.eventDate
       });
     } else {
       res.send("Event not found");
