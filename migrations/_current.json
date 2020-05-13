@@ -1,5 +1,43 @@
 {
     "tables": {
+        "events": {
+            "tableName": "events",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER(3).UNSIGNED"
+                },
+                "eventName": {
+                    "allowNull": false,
+                    "field": "eventName",
+                    "seqType": "Sequelize.STRING"
+                },
+                "eventCategory": {
+                    "allowNull": false,
+                    "field": "eventCategory",
+                    "seqType": "Sequelize.STRING"
+                },
+                "eventDate": {
+                    "allowNull": false,
+                    "field": "eventDate",
+                    "seqType": "Sequelize.DATE"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
         "users": {
             "tableName": "users",
             "schema": {
@@ -54,5 +92,5 @@
             "indexes": []
         }
     },
-    "revision": 1
+    "revision": 2
 }

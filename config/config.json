@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "e#11N0v18!rc*t8667m",
+    "password": "",
     "database": "listium db",
     "host": "127.0.0.1",
     "dialect": "mysql",
